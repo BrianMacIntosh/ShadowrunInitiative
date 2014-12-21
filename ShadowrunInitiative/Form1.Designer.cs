@@ -58,7 +58,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.combatTimeLabel = new System.Windows.Forms.Label();
-            this.seizeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.edgeNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reactNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.intuitNumeric)).BeginInit();
@@ -146,7 +145,6 @@
             // 
             // characterBox
             // 
-            this.characterBox.Controls.Add(this.seizeButton);
             this.characterBox.Controls.Add(this.delayButton);
             this.characterBox.Controls.Add(this.incapacitatedCheckBox);
             this.characterBox.Controls.Add(this.pcCheckbox);
@@ -209,7 +207,7 @@
             this.groupBox3.Controls.Add(this.interrupt10Button);
             this.groupBox3.Controls.Add(this.interrupt5Button);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(6, 205);
+            this.groupBox3.Location = new System.Drawing.Point(6, 176);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(138, 54);
             this.groupBox3.TabIndex = 12;
@@ -399,17 +397,6 @@
             this.combatTimeLabel.TabIndex = 17;
             this.combatTimeLabel.Text = "TEMP";
             // 
-            // seizeButton
-            // 
-            this.seizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seizeButton.Location = new System.Drawing.Point(6, 176);
-            this.seizeButton.Name = "seizeButton";
-            this.seizeButton.Size = new System.Drawing.Size(66, 23);
-            this.seizeButton.TabIndex = 25;
-            this.seizeButton.Text = "Seize";
-            this.seizeButton.UseVisualStyleBackColor = true;
-            this.seizeButton.Click += new System.EventHandler(this.seizeButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -474,7 +461,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label combatTimeLabel;
         private System.Windows.Forms.Button delayButton;
-        private System.Windows.Forms.Button seizeButton;
     }
 }
 

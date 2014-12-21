@@ -24,6 +24,7 @@ namespace ShadowrunInitiative
         public void ApplyInit()
         {
             m_Character.Initiative = (int)initiativeNumeric.Value;
+            m_Character.Seize = seizeCheckBox.Checked;
         }
     }
 }

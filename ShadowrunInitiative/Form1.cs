@@ -52,6 +52,14 @@ namespace ShadowrunInitiative
 
             public bool WentThisTurn = false;
 
+            public bool Seize = false;
+
+            public void TurnReset()
+            {
+                WentThisTurn = false;
+                Seize = false;
+            }
+
             public event PropertyChangedEventHandler PropertyChanged;
 
             private void NotifyPropertyChanged(string info)
@@ -72,6 +80,16 @@ namespace ShadowrunInitiative
 
             public int Compare(Character a, Character b)
             {
+                if (!a.Seize && b.Seize)
+                    return -1;
+                else if (a.Seize && !b.Seize)
+                    return 1;
+
+                if (a.Initiative < b.Initiative)
+                    return -1;
+                else if (a.Initiative > b.Initiative)
+                    return 1;
+
                 if (a.Edge < b.Edge)
                     return -1;
                 else if (a.Edge > b.Edge)
@@ -158,6 +176,8 @@ namespace ShadowrunInitiative
 
             interrupt5Button.Enabled = SelectedCharacter != null && SelectedCharacter.Initiative >= 5;
             interrupt10Button.Enabled = SelectedCharacter != null && SelectedCharacter.Initiative >= 10;
+
+            delayButton.Enabled = m_CurrentCharacter == SelectedCharacter;
         }
 
         private void charactersListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -297,13 +317,18 @@ namespace ShadowrunInitiative
         private void SetCurrentCharacter(Character character)
         {
             m_CurrentCharacter = character;
+            UpdateCharacterDependent();
             if (character != null)
             {
                 nextTurnButton.Text = "Next Turn";
                 character.WentThisTurn = true;
                 //currentTurnStaticLabel.Visible = true;
                 currentCharLabel.Text = ">>" + character.Name + "<<";
-                LogMessage("TURN: " + character.Name);
+
+                string turnMessage = "TURN: " + character.Name;
+                if (character.Seize)
+                    turnMessage += " (seized)";
+                LogMessage(turnMessage);
             }
             else
             {
@@ -348,7 +373,7 @@ namespace ShadowrunInitiative
                 foreach (Character c in m_Characters)
                 {
                     c.Initiative -= 10;
-                    c.WentThisTurn = false;
+                    c.TurnReset();
                 }
                 CombatTurns++;
                 m_NewTurn = true;
@@ -358,7 +383,7 @@ namespace ShadowrunInitiative
             {
                 //New round
                 foreach (Character c in m_Characters)
-                    c.WentThisTurn = false;
+                    c.TurnReset();
                 SetCurrentCharacter(null);
 
                 LogMessage("");
@@ -376,11 +401,6 @@ namespace ShadowrunInitiative
         }
 
         private void delayButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void seizeButton_Click(object sender, EventArgs e)
         {
 
         }
