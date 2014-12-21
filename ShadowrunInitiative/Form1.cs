@@ -154,6 +154,7 @@ namespace ShadowrunInitiative
         private void UpdateCharacterDependent()
         {
             nextTurnButton.Enabled = m_Characters.Any();
+            newCombatButton.Enabled = m_Characters.Any();
 
             interrupt5Button.Enabled = SelectedCharacter != null && SelectedCharacter.Initiative >= 5;
             interrupt10Button.Enabled = SelectedCharacter != null && SelectedCharacter.Initiative >= 10;
@@ -229,7 +230,15 @@ namespace ShadowrunInitiative
         private void removeCharacterButton_Click(object sender, EventArgs e)
         {
             if (m_Characters.Contains(SelectedCharacter))
-                m_Characters.Remove(SelectedCharacter);
+            {
+                if (MessageBox.Show(
+                    "Really delete character '" + SelectedCharacter.Name + "'?",
+                    "Delete Character",
+                    MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                {
+                    m_Characters.Remove(SelectedCharacter);
+                }
+            }
         }
 
         private void interrupt5Button_Click(object sender, EventArgs e)
@@ -265,12 +274,18 @@ namespace ShadowrunInitiative
 
         private void newCombatButton_Click(object sender, EventArgs e)
         {
-            for (int c = m_Characters.Count - 1; c >= 0; c--)
+            if (MessageBox.Show(
+                "Delete all NPCs and reset player characters?",
+                "Reset Combat",
+                MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
             {
-                if (!m_Characters[c].PC)
-                    m_Characters.RemoveAt(c);
-                m_LogMessages.Clear();
-                CombatTurns = 0;
+                for (int c = m_Characters.Count - 1; c >= 0; c--)
+                {
+                    if (!m_Characters[c].PC)
+                        m_Characters.RemoveAt(c);
+                    m_LogMessages.Clear();
+                    CombatTurns = 0;
+                }
             }
         }
 
@@ -361,6 +376,11 @@ namespace ShadowrunInitiative
         }
 
         private void delayButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void seizeButton_Click(object sender, EventArgs e)
         {
 
         }

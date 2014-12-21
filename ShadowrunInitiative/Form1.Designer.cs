@@ -58,6 +58,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.combatTimeLabel = new System.Windows.Forms.Label();
+            this.seizeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.edgeNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reactNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.intuitNumeric)).BeginInit();
@@ -145,6 +146,7 @@
             // 
             // characterBox
             // 
+            this.characterBox.Controls.Add(this.seizeButton);
             this.characterBox.Controls.Add(this.delayButton);
             this.characterBox.Controls.Add(this.incapacitatedCheckBox);
             this.characterBox.Controls.Add(this.pcCheckbox);
@@ -169,9 +171,9 @@
             // delayButton
             // 
             this.delayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delayButton.Location = new System.Drawing.Point(38, 176);
+            this.delayButton.Location = new System.Drawing.Point(75, 147);
             this.delayButton.Name = "delayButton";
-            this.delayButton.Size = new System.Drawing.Size(75, 23);
+            this.delayButton.Size = new System.Drawing.Size(66, 23);
             this.delayButton.TabIndex = 24;
             this.delayButton.Text = "Delay";
             this.delayButton.UseVisualStyleBackColor = true;
@@ -248,11 +250,11 @@
             // 
             this.removeCharacterButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.removeCharacterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeCharacterButton.Location = new System.Drawing.Point(38, 147);
+            this.removeCharacterButton.Location = new System.Drawing.Point(6, 147);
             this.removeCharacterButton.Name = "removeCharacterButton";
-            this.removeCharacterButton.Size = new System.Drawing.Size(75, 23);
+            this.removeCharacterButton.Size = new System.Drawing.Size(66, 23);
             this.removeCharacterButton.TabIndex = 23;
-            this.removeCharacterButton.Text = "Remove";
+            this.removeCharacterButton.Text = "Delete";
             this.removeCharacterButton.UseVisualStyleBackColor = true;
             this.removeCharacterButton.Click += new System.EventHandler(this.removeCharacterButton_Click);
             // 
@@ -397,6 +399,17 @@
             this.combatTimeLabel.TabIndex = 17;
             this.combatTimeLabel.Text = "TEMP";
             // 
+            // seizeButton
+            // 
+            this.seizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seizeButton.Location = new System.Drawing.Point(6, 176);
+            this.seizeButton.Name = "seizeButton";
+            this.seizeButton.Size = new System.Drawing.Size(66, 23);
+            this.seizeButton.TabIndex = 25;
+            this.seizeButton.Text = "Seize";
+            this.seizeButton.UseVisualStyleBackColor = true;
+            this.seizeButton.Click += new System.EventHandler(this.seizeButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,6 +474,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label combatTimeLabel;
         private System.Windows.Forms.Button delayButton;
+        private System.Windows.Forms.Button seizeButton;
     }
 }
 
