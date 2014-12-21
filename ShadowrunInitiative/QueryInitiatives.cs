@@ -17,7 +17,8 @@ namespace ShadowrunInitiative
 
             foreach (Form1.Character character in characters)
             {
-                initiativeRowPanel.Controls.Add(new CharacterInitLine(character));
+                if (!character.Incapacitated)
+                    initiativeRowPanel.Controls.Add(new CharacterInitLine(character));
             }
         }
 
