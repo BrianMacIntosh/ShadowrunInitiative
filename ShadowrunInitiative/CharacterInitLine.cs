@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace ShadowrunInitiative
 {
+    /// <summary>
+    /// A control allowing input of initiative for a turn for a single character.
+    /// </summary>
     public partial class CharacterInitLine : UserControl
     {
-        Form1.Character m_Character;
+        Character m_Character;
 
-        public CharacterInitLine(Form1.Character character)
+        public CharacterInitLine(Character character)
         {
             InitializeComponent();
 
@@ -21,6 +17,9 @@ namespace ShadowrunInitiative
             characterNameLabel.Text = character.Name;
         }
 
+        /// <summary>
+        /// Apply the current control settings to the character object.
+        /// </summary>
         public void ApplyInit()
         {
             m_Character.Initiative = (int)initiativeNumeric.Value;

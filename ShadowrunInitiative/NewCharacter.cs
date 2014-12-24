@@ -1,23 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ShadowrunInitiative
 {
+    /// <summary>
+    /// Form for creating a new Character object.
+    /// </summary>
     public partial class NewCharacter : Form
     {
-        public Form1.Character Character;
+        public Character Character;
 
         public NewCharacter()
         {
             InitializeComponent();
 
-            Character = new Form1.Character();
+            Character = new Character();
             okButton.Enabled = false;
         }
 

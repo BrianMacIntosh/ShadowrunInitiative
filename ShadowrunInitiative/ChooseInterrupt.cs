@@ -1,21 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ShadowrunInitiative
 {
+    /// <summary>
+    /// A form for deducting a custom interrupt value from a character.
+    /// </summary>
     public partial class ChooseInterrupt : Form
     {
         public int Value = 0;
 
-        private Form1.Character m_ForCharacter;
+        private Character m_ForCharacter;
 
-        public ChooseInterrupt(Form1.Character forChar)
+        public ChooseInterrupt(Character forChar)
         {
             InitializeComponent();
 
@@ -26,11 +23,6 @@ namespace ShadowrunInitiative
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             Value = (int)numericUpDown1.Value;
-        }
-
-        private void okButton_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

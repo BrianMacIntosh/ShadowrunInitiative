@@ -58,6 +58,12 @@
     <Compile Include="ChooseInterrupt.Designer.cs">
       <DependentUpon>ChooseInterrupt.cs</DependentUpon>
     </Compile>
+    <Compile Include="CombatSituationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CombatSituationPanel.Designer.cs">
+      <DependentUpon>CombatSituationPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="DelayAction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MatrixLevelPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MatrixLevelPanel.Designer.cs">
+      <DependentUpon>MatrixLevelPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="NewCharacter.cs">
       <SubType>Form</SubType>
@@ -84,17 +96,24 @@
     <Compile Include="QueryInitiatives.Designer.cs">
       <DependentUpon>QueryInitiatives.cs</DependentUpon>
     </Compile>
+    <Compile Include="Shadowrun.cs" />
     <EmbeddedResource Include="CharacterInitLine.resx">
       <DependentUpon>CharacterInitLine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChooseInterrupt.resx">
       <DependentUpon>ChooseInterrupt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CombatSituationPanel.resx">
+      <DependentUpon>CombatSituationPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DelayAction.resx">
       <DependentUpon>DelayAction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatrixLevelPanel.resx">
+      <DependentUpon>MatrixLevelPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewCharacter.resx">
       <DependentUpon>NewCharacter.cs</DependentUpon>

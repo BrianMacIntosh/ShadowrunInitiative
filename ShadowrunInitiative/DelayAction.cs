@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace ShadowrunInitiative
 {
+    /// <summary>
+    /// Form for delaying a character's action to another point, relative to
+    /// another character.
+    /// </summary>
     public partial class DelayAction : Form
     {
         public DelayAction()

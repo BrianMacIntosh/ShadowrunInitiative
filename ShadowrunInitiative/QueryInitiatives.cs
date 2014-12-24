@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ShadowrunInitiative
 {
+    /// <summary>
+    /// A form for inputting new initiative values at the start of turn.
+    /// </summary>
     public partial class QueryInitiatives : Form
     {
-        public QueryInitiatives(IEnumerable<Form1.Character> characters)
+        public QueryInitiatives(IEnumerable<Character> characters)
         {
             InitializeComponent();
 
-            foreach (Form1.Character character in characters)
+            foreach (Character character in characters)
             {
                 if (!character.Incapacitated)
                     initiativeRowPanel.Controls.Add(new CharacterInitLine(character));

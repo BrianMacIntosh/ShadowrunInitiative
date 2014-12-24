@@ -1,113 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ShadowrunInitiative
 {
     public partial class Form1 : Form
     {
-        public class Character : INotifyPropertyChanged
-        {
-            public string Name;
-
-            public bool PC
-            {
-                get { return m_PC; }
-                set
-                {
-                    m_PC = value;
-                    NotifyPropertyChanged("PC");
-                }
-            }
-            private bool m_PC = false;
-
-            public bool Incapacitated
-            {
-                get { return m_Incapacitated; }
-                set
-                {
-                    m_Incapacitated = value;
-                    NotifyPropertyChanged("Incapacitated");
-                }
-            }
-            private bool m_Incapacitated = false;
-
-            public int Edge, Reaction, Intuition;
-
-            public int Initiative
-            {
-                get { return m_Initiative; }
-                set
-                {
-                    m_Initiative = Math.Max(0, value);
-                    NotifyPropertyChanged("Initiative");
-                }
-            }
-            private int m_Initiative = 0;
-
-            public bool WentThisTurn = false;
-
-            public bool Seize = false;
-
-            public void TurnReset()
-            {
-                WentThisTurn = false;
-                Seize = false;
-            }
-
-            public event PropertyChangedEventHandler PropertyChanged;
-
-            private void NotifyPropertyChanged(string info)
-            {
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs(info));
-            }
-
-            public override string ToString()
-            {
-                return Name;
-            }
-        }
-
-        public class CharacterSpeedComparer : IComparer<Character>
-        {
-            private static Random s_Random = new Random();
-
-            public int Compare(Character a, Character b)
-            {
-                if (!a.Seize && b.Seize)
-                    return -1;
-                else if (a.Seize && !b.Seize)
-                    return 1;
-
-                if (a.Initiative < b.Initiative)
-                    return -1;
-                else if (a.Initiative > b.Initiative)
-                    return 1;
-
-                if (a.Edge < b.Edge)
-                    return -1;
-                else if (a.Edge > b.Edge)
-                    return 1;
-
-                if (a.Reaction < b.Reaction)
-                    return -1;
-                else if (a.Reaction > b.Reaction)
-                    return 1;
-
-                if (a.Intuition < b.Intuition)
-                    return -1;
-                else if (a.Intuition > b.Intuition)
-                    return 1;
-
-                return (s_Random.Next() % 2) * 2 - 1;
-            }
-        }
         private CharacterSpeedComparer CharacterSorter = new CharacterSpeedComparer();
 
         private BindingList<Character> m_Characters = new BindingList<Character>();
@@ -159,9 +59,17 @@ namespace ShadowrunInitiative
             logListBox.DataSource = m_LogMessages;
             SetCurrentCharacter(null);
 
+            combatSituationPanel1.OnCombatSituationChanged += OnSituationChanged;
+            OnSituationChanged(this, null);
+
             m_Characters.ListChanged += CharacterListChanged;
             CharacterListChanged(null, null);
             charactersListBox.DataSource = m_Characters;
+        }
+
+        private void OnSituationChanged(object sender, EventArgs e)
+        {
+            matrixLevelPanel.Visible = combatSituationPanel1.Situation == CombatSituation.MATRIX;
         }
 
         private void CharacterListChanged(object sender, ListChangedEventArgs e)
@@ -401,6 +309,15 @@ namespace ShadowrunInitiative
         }
 
         private void delayButton_Click(object sender, EventArgs e)
+        {
+            DelayAction delayDialog = new DelayAction();
+            if (delayDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+
+            }
+        }
+
+        public void UpdateCombatSituation()
         {
 
         }

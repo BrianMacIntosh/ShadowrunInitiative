@@ -56,8 +56,13 @@
             this.currentCharLabel = new System.Windows.Forms.Label();
             this.nextTurnButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.combatTimeLabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.combatSituationPanel1 = new ShadowrunInitiative.CombatSituationPanel();
+            this.matrixLevelPanel = new ShadowrunInitiative.MatrixLevelPanel();
             ((System.ComponentModel.ISupportInitialize)(this.edgeNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reactNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.intuitNumeric)).BeginInit();
@@ -66,12 +71,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.initNumeric)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 97);
+            this.label1.Location = new System.Drawing.Point(12, 174);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 0;
@@ -79,10 +87,12 @@
             // 
             // charactersListBox
             // 
+            this.charactersListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.charactersListBox.FormattingEnabled = true;
-            this.charactersListBox.Location = new System.Drawing.Point(12, 115);
+            this.charactersListBox.Location = new System.Drawing.Point(12, 190);
             this.charactersListBox.Name = "charactersListBox";
-            this.charactersListBox.Size = new System.Drawing.Size(150, 251);
+            this.charactersListBox.Size = new System.Drawing.Size(150, 225);
             this.charactersListBox.TabIndex = 1;
             this.charactersListBox.SelectedIndexChanged += new System.EventHandler(this.charactersListBox_SelectedIndexChanged);
             // 
@@ -90,7 +100,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 45);
+            this.label2.Location = new System.Drawing.Point(10, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 15;
@@ -99,7 +109,7 @@
             // edgeNumeric
             // 
             this.edgeNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.edgeNumeric.Location = new System.Drawing.Point(57, 43);
+            this.edgeNumeric.Location = new System.Drawing.Point(53, 26);
             this.edgeNumeric.Name = "edgeNumeric";
             this.edgeNumeric.Size = new System.Drawing.Size(51, 20);
             this.edgeNumeric.TabIndex = 16;
@@ -108,7 +118,7 @@
             // reactNumeric
             // 
             this.reactNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reactNumeric.Location = new System.Drawing.Point(57, 69);
+            this.reactNumeric.Location = new System.Drawing.Point(53, 52);
             this.reactNumeric.Name = "reactNumeric";
             this.reactNumeric.Size = new System.Drawing.Size(51, 20);
             this.reactNumeric.TabIndex = 18;
@@ -118,7 +128,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 71);
+            this.label3.Location = new System.Drawing.Point(4, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 17;
@@ -127,7 +137,7 @@
             // intuitNumeric
             // 
             this.intuitNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.intuitNumeric.Location = new System.Drawing.Point(57, 95);
+            this.intuitNumeric.Location = new System.Drawing.Point(53, 78);
             this.intuitNumeric.Name = "intuitNumeric";
             this.intuitNumeric.Size = new System.Drawing.Size(51, 20);
             this.intuitNumeric.TabIndex = 20;
@@ -137,7 +147,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 97);
+            this.label4.Location = new System.Drawing.Point(4, 80);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 19;
@@ -145,31 +155,22 @@
             // 
             // characterBox
             // 
-            this.characterBox.Controls.Add(this.delayButton);
-            this.characterBox.Controls.Add(this.incapacitatedCheckBox);
-            this.characterBox.Controls.Add(this.pcCheckbox);
-            this.characterBox.Controls.Add(this.groupBox3);
-            this.characterBox.Controls.Add(this.removeCharacterButton);
-            this.characterBox.Controls.Add(this.initNumeric);
-            this.characterBox.Controls.Add(this.label5);
-            this.characterBox.Controls.Add(this.edgeNumeric);
-            this.characterBox.Controls.Add(this.intuitNumeric);
-            this.characterBox.Controls.Add(this.label2);
-            this.characterBox.Controls.Add(this.label4);
-            this.characterBox.Controls.Add(this.label3);
-            this.characterBox.Controls.Add(this.reactNumeric);
+            this.characterBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.characterBox.Controls.Add(this.flowLayoutPanel1);
             this.characterBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.characterBox.Location = new System.Drawing.Point(168, 97);
             this.characterBox.Name = "characterBox";
-            this.characterBox.Size = new System.Drawing.Size(150, 267);
+            this.characterBox.Size = new System.Drawing.Size(150, 322);
             this.characterBox.TabIndex = 9;
             this.characterBox.TabStop = false;
             this.characterBox.Text = "Character Name";
             // 
             // delayButton
             // 
+            this.delayButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.delayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delayButton.Location = new System.Drawing.Point(75, 147);
+            this.delayButton.Location = new System.Drawing.Point(72, 0);
             this.delayButton.Name = "delayButton";
             this.delayButton.Size = new System.Drawing.Size(66, 23);
             this.delayButton.TabIndex = 24;
@@ -181,7 +182,7 @@
             // 
             this.incapacitatedCheckBox.AutoSize = true;
             this.incapacitatedCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.incapacitatedCheckBox.Location = new System.Drawing.Point(54, 20);
+            this.incapacitatedCheckBox.Location = new System.Drawing.Point(50, 3);
             this.incapacitatedCheckBox.Name = "incapacitatedCheckBox";
             this.incapacitatedCheckBox.Size = new System.Drawing.Size(91, 17);
             this.incapacitatedCheckBox.TabIndex = 14;
@@ -193,7 +194,7 @@
             // 
             this.pcCheckbox.AutoSize = true;
             this.pcCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pcCheckbox.Location = new System.Drawing.Point(7, 20);
+            this.pcCheckbox.Location = new System.Drawing.Point(3, 3);
             this.pcCheckbox.Name = "pcCheckbox";
             this.pcCheckbox.Size = new System.Drawing.Size(40, 17);
             this.pcCheckbox.TabIndex = 13;
@@ -207,7 +208,8 @@
             this.groupBox3.Controls.Add(this.interrupt10Button);
             this.groupBox3.Controls.Add(this.interrupt5Button);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(6, 176);
+            this.groupBox3.Location = new System.Drawing.Point(0, 240);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(138, 54);
             this.groupBox3.TabIndex = 12;
@@ -246,9 +248,8 @@
             // 
             // removeCharacterButton
             // 
-            this.removeCharacterButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.removeCharacterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeCharacterButton.Location = new System.Drawing.Point(6, 147);
+            this.removeCharacterButton.Location = new System.Drawing.Point(0, 0);
             this.removeCharacterButton.Name = "removeCharacterButton";
             this.removeCharacterButton.Size = new System.Drawing.Size(66, 23);
             this.removeCharacterButton.TabIndex = 23;
@@ -259,7 +260,7 @@
             // initNumeric
             // 
             this.initNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.initNumeric.Location = new System.Drawing.Point(57, 121);
+            this.initNumeric.Location = new System.Drawing.Point(53, 104);
             this.initNumeric.Name = "initNumeric";
             this.initNumeric.Size = new System.Drawing.Size(51, 20);
             this.initNumeric.TabIndex = 22;
@@ -269,7 +270,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 123);
+            this.label5.Location = new System.Drawing.Point(22, 106);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 13);
             this.label5.TabIndex = 21;
@@ -309,6 +310,9 @@
             // 
             // logListBox
             // 
+            this.logListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.logListBox.BackColor = System.Drawing.Color.DimGray;
             this.logListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logListBox.ForeColor = System.Drawing.Color.Lime;
@@ -324,11 +328,11 @@
             "",
             "-+-+ NEW ROUND +-+-",
             "TURN: Chris"});
-            this.logListBox.Location = new System.Drawing.Point(324, 35);
+            this.logListBox.Location = new System.Drawing.Point(325, 40);
             this.logListBox.Name = "logListBox";
             this.logListBox.ScrollAlwaysVisible = true;
             this.logListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.logListBox.Size = new System.Drawing.Size(273, 324);
+            this.logListBox.Size = new System.Drawing.Size(273, 372);
             this.logListBox.TabIndex = 11;
             this.logListBox.TabStop = false;
             // 
@@ -378,32 +382,93 @@
             this.panel1.Size = new System.Drawing.Size(150, 79);
             this.panel1.TabIndex = 15;
             // 
-            // label6
+            // panel2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(324, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 13);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Combat Duration:";
+            this.panel2.Controls.Add(this.pcCheckbox);
+            this.panel2.Controls.Add(this.incapacitatedCheckBox);
+            this.panel2.Controls.Add(this.reactNumeric);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.initNumeric);
+            this.panel2.Controls.Add(this.intuitNumeric);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.edgeNumeric);
+            this.panel2.Location = new System.Drawing.Point(0, 3);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(138, 130);
+            this.panel2.TabIndex = 19;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.removeCharacterButton);
+            this.panel3.Controls.Add(this.delayButton);
+            this.panel3.Location = new System.Drawing.Point(0, 211);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(138, 23);
+            this.panel3.TabIndex = 19;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
+            this.flowLayoutPanel1.Controls.Add(this.matrixLevelPanel);
+            this.flowLayoutPanel1.Controls.Add(this.panel3);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox3);
+            this.flowLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 20);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(137, 296);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // combatTimeLabel
             // 
             this.combatTimeLabel.AutoSize = true;
             this.combatTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.combatTimeLabel.Location = new System.Drawing.Point(414, 13);
+            this.combatTimeLabel.Location = new System.Drawing.Point(413, 22);
             this.combatTimeLabel.Name = "combatTimeLabel";
             this.combatTimeLabel.Size = new System.Drawing.Size(41, 13);
-            this.combatTimeLabel.TabIndex = 17;
+            this.combatTimeLabel.TabIndex = 20;
             this.combatTimeLabel.Text = "TEMP";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(323, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Combat Duration:";
+            // 
+            // combatSituationPanel1
+            // 
+            this.combatSituationPanel1.Location = new System.Drawing.Point(12, 97);
+            this.combatSituationPanel1.Name = "combatSituationPanel1";
+            this.combatSituationPanel1.Situation = ShadowrunInitiative.CombatSituation.PHYSICAL;
+            this.combatSituationPanel1.Size = new System.Drawing.Size(150, 66);
+            this.combatSituationPanel1.TabIndex = 18;
+            // 
+            // matrixLevelPanel
+            // 
+            this.matrixLevelPanel.Location = new System.Drawing.Point(0, 139);
+            this.matrixLevelPanel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.matrixLevelPanel.MatrixLevel = ShadowrunInitiative.MatrixLevel.AR;
+            this.matrixLevelPanel.Name = "matrixLevelPanel";
+            this.matrixLevelPanel.Size = new System.Drawing.Size(137, 66);
+            this.matrixLevelPanel.TabIndex = 20;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 375);
+            this.ClientSize = new System.Drawing.Size(610, 426);
             this.Controls.Add(this.combatTimeLabel);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.combatSituationPanel1);
             this.Controls.Add(this.logListBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -420,11 +485,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.reactNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.intuitNumeric)).EndInit();
             this.characterBox.ResumeLayout(false);
-            this.characterBox.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.initNumeric)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,9 +526,14 @@
         private System.Windows.Forms.Button interrupt5Button;
         private System.Windows.Forms.CheckBox pcCheckbox;
         private System.Windows.Forms.CheckBox incapacitatedCheckBox;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label combatTimeLabel;
         private System.Windows.Forms.Button delayButton;
+        private CombatSituationPanel combatSituationPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label combatTimeLabel;
+        private System.Windows.Forms.Label label6;
+        private MatrixLevelPanel matrixLevelPanel;
     }
 }
 
